@@ -15,7 +15,7 @@ A deployed link to the website can be found [here](https://github.com/tadhgnolan
 
 ### UX
 
-End users will be those already working in the hospitality industry or those who like to read of life experiences different to their own in a few short paragraphs. This encompasses an age range from 18 to 60 (essentially working age and beyond). The technological approach is mobile first
+End users will be those looking for martial arts classes. This encompasses an age range from 18 to 60 (essentially working age and beyond). The technological approach is mobile first
 
 - As a user I would like the club locations to be visible with minimal clicks.
 
