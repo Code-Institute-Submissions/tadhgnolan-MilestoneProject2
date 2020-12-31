@@ -19,7 +19,7 @@ function initMap() {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         };
-        map = new google.maps(document.getElementById('map'), {
+        map = new google.maps.Map(document.getElementById('map'), {
           center: pos,
           zoom: 15,
         });
@@ -127,7 +127,7 @@ function createMarkers(places) {
 /* Show place details in an info window */
 // Builds an InfoWindow to display details above the marker
 function showDetails(placeResult, marker, status) {
-  if (status == google.maps.places.PlaceServiceStatus.OK) {
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
     let placeInfoWindow = new google.maps.InfoWindow();
     let rating = 'None';
     if (placeResult.rating) rating = placeResult.rating;
