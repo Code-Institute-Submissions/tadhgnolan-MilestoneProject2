@@ -10,7 +10,7 @@ The purpose is to direct customers towards aforementioned clubs.
 
 ### Showcase
 
-A deployed link to the website can be found [here](https://github.com/tadhgnolan/MilestoneProject2/).
+A deployed link to the website can be found [here](https://tadhgnolan.github.io/MilestoneProject2/.
 ![Preview](https://github.com/tadhgnolan/MilestoneProject2/blob/master/readmeassets/landingsample.PNG)
 
 ### UX
