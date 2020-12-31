@@ -1,3 +1,4 @@
+/* Used JavaScript from https://codelabs.developers.google.com/codelabs/google-maps-nearby-search-js */
 let pos;
 let map;
 let bounds;
