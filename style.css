@@ -122,6 +122,23 @@ a {
   padding: right 1px;
 }
 
+.page-footer {
+  background-color: black !important;
+  color: white !important;
+  text-align: center !important;
+}
+
+.fa {
+  background-color: #0c88ef;
+  margin: auto;
+  padding: 20px;
+  font-size: 30px;
+  width: 70px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 50%;
+}
+
 html,
 body,
 header,
