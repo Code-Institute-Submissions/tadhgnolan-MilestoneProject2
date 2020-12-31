@@ -8,52 +8,52 @@ let infoPane;
 function initMap() {
   //Initialise variables
   bounds = new google.maps.LatLngBounds();
-  infoWindow = new google.maps.InfoWindow(;
+  infoWindow = new google.maps.InfoWindow();
   currentInfoWindow = infoWindow;
 
-//HTML5 geolocation
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(
-    (position) => {
-      pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-      };
-      map = new google.maps(document.getElementById('map'), {
-        center: pos,
-        zoom: 15,
-      });
-      bounds.extend(pos);
+  //HTML5 geolocation
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        };
+        map = new google.maps(document.getElementById('map'), {
+          center: pos,
+          zoom: 15,
+        });
+        bounds.extend(pos);
 
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found.');
-      infoWindow.open(map);
-      map.setCenter(pos);
+        infoWindow.setPosition(pos);
+        infoWindow.setContent('Location found.');
+        infoWindow.open(map);
+        map.setCenter(pos);
 
-      // Call Places Nearby on user's location
-      getNearbyPlaces(pos);
-    },
-    () => {
-      // Browser supports geolocation, but user has denied permission
-      handleLocationError(true, infoWindow);
-    }
-  );
-} else {
-  // Browser doesn't support geolocation
-  handleLocationError(false, infoWindow);
-}
+        // Call Places Nearby on user's location
+        getNearbyPlaces(pos);
+      },
+      () => {
+        // Browser supports geolocation, but user has denied permission
+        handleLocationError(true, infoWindow);
+      }
+    );
+  } else {
+    // Browser doesn't support geolocation
+    handleLocationError(false, infoWindow);
+  }
 }
 
 // Handle a geolocation error
 function handleLocationError(browserHasGeolocation, infoWindow) {
   // Set default loction to  Dublin, Ireland
-  pos = { lat: 55.37967, lng: -6.19644};
+  pos = { lat: 55.37967, lng: -6.19644 };
   map = new google.maps.Map(document.getElementById('map'), {
     center: pos,
     zoom: 15,
-  })
-  
-  // Display an InfoWindow at the map center 
+  });
+
+  // Display an InfoWindow at the map center
   infoWindow.setPosition(pos);
   infoWindow.setContent(
     browserHasGeolocation
@@ -91,7 +91,7 @@ function createMarkers(places) {
   places.forEach((place) => {
     let marker = new google.maps.Marker({
       position: place.geometry.location,
-      map:  map,
+      map: map,
       title: place.name,
     });
 
@@ -103,7 +103,7 @@ function createMarkers(places) {
           'name',
           'formatted_address',
           'geometry',
-          'rating'
+          'rating',
           'website',
           'photos',
         ],
@@ -116,7 +116,7 @@ function createMarkers(places) {
       });
     });
 
-    // Adjust the map bounds to include the location of this marker 
+    // Adjust the map bounds to include the location of this marker
     bounds.extend(place.geometry.location);
   });
   /* Once all the markers have been placed, adjust the bounds  of the map to
@@ -133,11 +133,11 @@ function showDetails(placeResult, marker, status) {
     if (placeResult.rating) rating = placeResult.rating;
     placeInfoWindow.setContent(
       '<div><strong>' +
-      placeResult.name +
-      '</strong><br>' +
-      'Rating: ' +
-      rating +
-      '</div>'
+        placeResult.name +
+        '</strong><br>' +
+        'Rating: ' +
+        rating +
+        '</div>'
     );
     placeInfoWindow.open(marker.map, marker);
     currentInfoWindow.close();
@@ -162,14 +162,14 @@ function showPanel(placeResult) {
 
   // Add the primary photo, if there is one
   if (placeResult.photos) {
-    let firstPhoto= placeResult.photos[0]
+    let firstPhoto = placeResult.photos[0];
     let photo = document.createElement('img');
     photo.classList.add('hero');
     photo.src = firstPhoto.getUrl();
     infoPane.appendChild(photo);
   }
 
-  // Add place details with text formatting 
+  // Add place details with text formatting
   let name = document.createElement('h1');
   name.classList.add('place');
   name.textContent = placeResult.name;
