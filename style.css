@@ -7,6 +7,10 @@ html {
   padding: 0;
 }
 
+label {
+  color: white;
+}
+
 /* The hero image */
 .hero-image {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
@@ -150,4 +154,22 @@ header,
 body {
   background-color: black;
   font-family: 'Roboto Condensed', sans-serif;
+}
+
+/*for tablets ranging in size between iPad & iPad Pro*/
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  body {
+    font-size: 2rem !important;
+  }
+  .navbar-brand,
+  .nav-link,
+  .dropdown-item {
+    font-size: 1.25rem !important;
+  }
+  .blockquote {
+    font-size: 2.5rem !important;
+  }
+  p {
+    font-size: 1.25rem !important;
+  }
 }
